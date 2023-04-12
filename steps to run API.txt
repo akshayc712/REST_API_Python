@@ -1,0 +1,81 @@
+python -m venv .venv
+
+D:\Python\API_Sublime>cd .venv                                                                                                              
+                                                                                                                                            
+D:\Python\API_Sublime\.venv>cd Scripts                                                                                                      
+                                                                                                                                            
+D:\Python\API_Sublime\.venv\Scripts>activate
+
+(.venv) D:\Python\API_Sublime\.venv\Scripts>
+
+pip install flask
+
+pip install flask-sqlalchemy ----ORM
+
+pip freeze > requirements.txt
+
+
+
+create application.py
+
+
+Set env variable every time you close terminal
+
+(.venv) D:\Python\API_Sublime\.venv\Scripts>set FLASK_APP=application.py                                                                    
+                                                                                                                                            
+(.venv) D:\Python\API_Sublime\.venv\Scripts>set FLASK_ENV=development
+
+
+(.venv) D:\Python\API_Sublime\.venv\Scripts>cd ..                                                                                           
+                                                                                                                                            
+(.venv) D:\Python\API_Sublime\.venv>cd ..                                                                                                   
+                                                                                                                                            
+(.venv) D:\Python\API_Sublime>echo %FLASK_ENV%                                                                                              
+development                                                                                                                                 
+                                                                                                                                            
+(.venv) D:\Python\API_Sublime>echo %FLASK_APP%                                                                                              
+application.py
+
+(.venv) D:\Python\API_Sublime>flask run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://127.0.0.1:5000/drinks/
+
+
+curl -i -X GET http://rest-api.io/items
+curl -i -X GET http://rest-api.io/items/5069b47aa892630aae059584
+curl -i -X DELETE http://rest-api.io/items/5069b47aa892630aae059584
+curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "New item", "year": "2009"}' http://rest-api.io/items
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"name": "Updated item", "year": "2010"}' http://rest-api.io/items/5069b47aa892630aae059584
+
+
+curl -i -X GET http://127.0.0.1:5000/drinks/
+curl -i -X DELETE http://rest-api.io/items/5069b47aa892630aae059584
+curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "New item", "year": "2009"}' http://rest-api.io/items
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"name": "Updated item", "year": "2010"}' http://rest-api.io/items/5069b47aa892630aae059584
+
+
+curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "New item", "description": "Thru curl"}' http://127.0.0.1:5000/drinks/
+
+curl -i -X DELETE http://rest-api.io/items/5069b47aa892630aae059584
+
+
+
+Below worked
+curl -i -X GET http://127.0.0.1:5000/drinks/
+curl -X POST http://127.0.0.1:5000/drinks/ -H "Content-Type: application/json" -d "{\"name\":\"New item\",\"description\":\"Thru curl\"}"
+curl -i -X POST http://127.0.0.1:5000/drinks/ -H "Content-Type: application/json" -d "{\"name\":\"New item1\",\"description\":\"Thru curl1\"}"
